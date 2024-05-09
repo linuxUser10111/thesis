@@ -2,8 +2,6 @@
 
 \RequirePackage[l2tabu,orthodox]{nag}
 
-% TODO: decide if one-sided/two-sided
-%\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc,BCOR=12mm,DIV=12]{scrbook} % two-sided
 \documentclass[headsepline,footsepline,footinclude=false,oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-sided
 
 % TODO: change citation style in settings
@@ -44,8 +42,13 @@
 \mainmatter{}
 
 \input{chapters/01_introduction}
+\input{chapters/02_background}
+\input{chapters/03_the_gap}
+\input{chapters/04_solution}
+\input{chapters/05_evaluation}
+\input{chapters/06_conclusion}
 % TODO: add more chapters here
-
+%
 \appendix{}
 
 \microtypesetup{protrusion=false}
@@ -54,6 +57,12 @@
 \begin{acronym}
 	\itemsep-.25\baselineskip
 	\acro{TUM}[TUM]{Technical University of Munich}
+	\acro{ML}[ML]{Machine Learning}
+	\acro{AI}[AI]{Artificial Intelligence}
+	\acro{MLOps}[MLOps]{Machine Learning Operations}
+	\acro{NN}[NN]{Neural Network}
+	\acro{CNN}[CNN]{Convolutional Neural Networks}
+	\acro{CI/CD}[CI/CD]{Continuous Integration and Continuous Deployment}
 	% TODO: add acronyms
 \end{acronym}
 

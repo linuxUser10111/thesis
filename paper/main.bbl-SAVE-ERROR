@@ -1,0 +1,272 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{Data-Driven-Approach-2}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9802e589f6ca60cf235e3f3763fabb46}{%
+           family={Akram},
+           familyi={A\bibinitperiod},
+           given={Faheem},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da0d13c21c4002738c85f780f13c10f1}{%
+           family={Abbas},
+           familyi={A\bibinitperiod},
+           given={Asad},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \strng{fullhash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \strng{bibnamehash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \strng{authorbibnamehash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \strng{authornamehash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \strng{authorfullhash}{ca3f4a5f0ac3d80a3eb52b4986f1ccbf}
+      \field{labelalpha}{AA23}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{Data-driven Decisions: Exploring the Power of Machine Learning and Analytics}
+      \field{year}{2023}
+    \endentry
+    \entry{MLHistory}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ebcf516b5f6db8c6d6f65ade1edf745d}{%
+           family={Jacinto},
+           familyi={J\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \strng{fullhash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \strng{bibnamehash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \strng{authorbibnamehash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \strng{authornamehash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \strng{authorfullhash}{ebcf516b5f6db8c6d6f65ade1edf745d}
+      \field{labelalpha}{Jac22}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Machine Learning History}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.startechup.com/blog/machine-learning-history/
+      \endverb
+      \verb{url}
+      \verb https://www.startechup.com/blog/machine-learning-history/
+      \endverb
+    \endentry
+    \entry{Geoffrey_Hinton}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b4a7d1b0e36a91e697070a844d3fb000}{%
+           family={McDonough},
+           familyi={M\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \strng{fullhash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \strng{bibnamehash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \strng{authorbibnamehash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \strng{authornamehash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \strng{authorfullhash}{b4a7d1b0e36a91e697070a844d3fb000}
+      \field{labelalpha}{McD}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{howpublished}{\url{https://www.britannica.com/biography/Geoffrey-Hinton.}}
+      \field{note}{Accessed: 2024-5-7}
+    \endentry
+    \entry{MLRise}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f083f40a96a68d21394e3fecff194560}{%
+           family={Naqvi},
+           familyi={N\bibinitperiod},
+           given={Al},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f083f40a96a68d21394e3fecff194560}
+      \strng{fullhash}{f083f40a96a68d21394e3fecff194560}
+      \strng{bibnamehash}{f083f40a96a68d21394e3fecff194560}
+      \strng{authorbibnamehash}{f083f40a96a68d21394e3fecff194560}
+      \strng{authornamehash}{f083f40a96a68d21394e3fecff194560}
+      \strng{authorfullhash}{f083f40a96a68d21394e3fecff194560}
+      \field{labelalpha}{Naq20}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781119601906}
+      \field{month}{08}
+      \field{title}{Rise of Machine Learning}
+      \field{year}{2020}
+      \field{pages}{51\bibrangedash 67}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1002/9781119601906.ch4
+      \endverb
+    \endentry
+    \entry{Rahal2024}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=82b07f8238f02dbc5a43217330d1317a}{%
+           family={Rahal},
+           familyi={R\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40b93c11d95cf8d643dbff8f3562b583}{%
+           family={Verhagen},
+           familyi={V\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aad4c4650712ee0263a8759e35c90c84}{%
+           family={Kirk},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \strng{fullhash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \strng{bibnamehash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \strng{authorbibnamehash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \strng{authornamehash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \strng{authorfullhash}{4b80385ac0baaf5ca835cd6df7302d59}
+      \field{labelalpha}{RVK24}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1435-5655}
+      \field{journaltitle}{AI {\&} SOCIETY}
+      \field{month}{04}
+      \field{number}{2}
+      \field{title}{The rise of machine learning in the academic social sciences}
+      \field{volume}{39}
+      \field{year}{2024}
+      \field{pages}{799\bibrangedash 801}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1007/s00146-022-01540-w
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00146-022-01540-w
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00146-022-01540-w
+      \endverb
+    \endentry
+    \entry{Data-Driven-Approach}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1a01f70084e17dea474315437e22a272}{%
+           family={Torkjazi},
+           familyi={T\bibinitperiod},
+           given={Mohammadreza},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9928a3fe6db625363937ce595518a647}{%
+           family={Raz},
+           familyi={R\bibinitperiod},
+           given={Ali\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \strng{fullhash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \strng{bibnamehash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \strng{authorbibnamehash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \strng{authornamehash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \strng{authorfullhash}{dd20819b0d0f86b53f1b6c96786ee35c}
+      \field{labelalpha}{TR23}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 IEEE International Systems Conference (SysCon)}
+      \field{title}{Data-Driven Approach with Machine Learning to Reduce Subjectivity in Multi-Attribute Decision Making Methods}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/SysCon53073.2023.10131094
+      \endverb
+      \keyw{Fluctuations;Data analysis;Costs;Decision making;Urban areas;Machine learning;Systems engineering and theory;Multi-Criteria Decision Making;Multi-Attribute Decision Making;Subjective Weights;Trade Study;Machine Learning (ML)}
+    \endentry
+    \entry{Frank_Rosenblatt}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=dff21045f5ac8a5cb546a24917e5318e}{%
+           family={Van\bibnamedelimb Der\bibnamedelima Malsburg},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=c92dcede871b3a805a744ce4df2eaed6}{%
+           family={Palm},
+           familyi={P\bibinitperiod},
+           given={Günther},
+           giveni={G\bibinitperiod}}}%
+        {{hash=83a9d134b8e1d6697bd710a1176471b1}{%
+           family={Aertsen},
+           familyi={A\bibinitperiod},
+           given={Ad},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{fullhash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{bibnamehash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{authorbibnamehash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{authornamehash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{authorfullhash}{dff21045f5ac8a5cb546a24917e5318e}
+      \strng{editorbibnamehash}{a91ed9225cd14bc75d9d1c0c33535911}
+      \strng{editornamehash}{a91ed9225cd14bc75d9d1c0c33535911}
+      \strng{editorfullhash}{a91ed9225cd14bc75d9d1c0c33535911}
+      \field{labelalpha}{Van86}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Frank Rosenblatt's intention with his book, according to his own introduction, is not just to describe a machine, the perceptron, but rather to put forward a theory. He formulates a series of machines. Each machine serves to introduce a new concept.}
+      \field{booktitle}{Brain Theory}
+      \field{isbn}{978-3-642-70911-1}
+      \field{title}{Frank Rosenblatt: Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms}
+      \field{year}{1986}
+      \field{pages}{245\bibrangedash 248}
+      \range{pages}{4}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

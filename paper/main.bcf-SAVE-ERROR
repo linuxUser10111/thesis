@@ -2344,3 +2344,10 @@
     <bcf:datasource type="file" datatype="bibtex">bibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1">MLHistory</bcf:citekey>
+    <bcf:citekey order="1">Rahal2024</bcf:citekey>
+    <bcf:citekey order="1">MLRise</bcf:citekey>
+    <bcf:citekey order="2">Frank_Rosenblatt</bcf:citekey>
+    <bcf:citekey order="3">Geoffrey_Hinton</bcf:citekey>
+    <bcf:citekey order="4">Data-Driven-Approach</bcf:citekey>
+    <bcf:citekey order="4">Data-Driven-Approach-2</bcf:citekey>

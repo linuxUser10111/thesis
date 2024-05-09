@@ -464,3 +464,6 @@ cython_debug/
 #.idea/
 .*.venv
 *.devcontainer
+
+ideas.txt
+examples.txt
