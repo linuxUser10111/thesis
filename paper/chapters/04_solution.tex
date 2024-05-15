@@ -12,7 +12,7 @@ Virtualization is the process of creating a virtual version or several virtual v
 In computer science, virtualization refers to replicating a physical system or server and its components within a single machine, to mimic their functionality. Basically, it is about sharing capabilities of a single physical machine accross multiple users or virtual settings. This approach empowered cloud service providers to share their physical infrastructure capabilities to user more efficiently.
 
 \subsection{Containers vs. Virtual Machines}
-We can distinguish between two primary forms of virtualization:
+We can distinguish between two primary forms of virtualization \cite{CON_VMS, CON_VMS_Atlassien, CON_VMS_ENGINE_YARD}:
 \begin{enumerate}
     \item \textbf{\ac{VMs}}: \ac{VMs} virtualize an entire machine down to the hardware layers. They mimic the behavior of the underlying physical hardware/computer - like CPU, Disks and Networking devices - using a hypervisor, thus creating several virtual machines. Each virtual machine runs its \ac{OS} required for the respective applications, libraries, and functions separately from the other \ac{VMs}. Different \ac{VMs} can be run on the same physical host. Virtual machines may also include a complementary software stack to run on the emulated hardware. These hardware and software packages combined produce a fully functional snapshot of a computational system. As shown in \autoref{fig:Virtual_Machine}
           \input{figures/virtual-machine}
@@ -33,12 +33,14 @@ We can distinguish between two primary forms of virtualization:
           \newline
           \textbf{Advantages}
           \begin{itemize}
-              \item
+              \item \textbf{Speed of Iteration}: Due to the fact that containers are lightweight and include only the essential high-level software, as we saw earlier, they possess a remarkable capability for rapid development and iteration. Their basic design and focus on minimalism allow efficient modification capabilities.
+              \item \textbf{Robust ecosystem}: Container runtime system offer developers access to pre-defined repositories. These repositories provide an extensive selection of popular software applications, such as databases and messaging systems, that are fast to restore and execute. This setup can help development teams to save time and focus on their core tasks.
           \end{itemize}
 
           \textbf{Disadvantages}
           \begin{itemize}
-              \item
+              \item \textbf{Shared host exploits}: Containers are built on a shared hardware infrastructure below the operating system layer. That means it is possible that an exploit in one container could break out of the container and affect the hardware that is shared with other containers. This poses a security risk when using one of these public images as they may contain exploits or be vulnerable to being hijacked by nefarious actors.
+              % TODO add one more cons 
           \end{itemize}
 \end{enumerate}
 \subsection{Docker}
