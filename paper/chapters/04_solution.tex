@@ -26,7 +26,7 @@ We can distinguish between two primary forms of virtualization \cite{CON_VMS, CO
           \textbf{Disadvantages}
           \begin{itemize}
               \item \textbf{Cost of Storage Space}: It is worth noting that virtual machine take up a lot of space, due to the fact that they virtualize the entire machine. This expansion can lead to potential disk storage issues as the virtual machines keep expanding. Therefor it is crucial to keep monitoring and managing the consumtion to ensure optimal performance and to avoid any disruption on the virtual machine.
-              \item \textbf{Speed of Iteration}: Creating and maintaining a virtual machines can be a complex and time-consuming process, as it involves setting up an entire system stack. Modefiying a snapshot of a virtual machine can require significant efforts to rebuild and ensure its expected functionality.  
+              \item \textbf{Speed of Iteration}: Creating and maintaining a virtual machines can be a complex and time-consuming process, as it involves setting up an entire system stack. Modefiying a snapshot of a virtual machine can require significant efforts to rebuild and ensure its expected functionality.
           \end{itemize}
     \item \textbf{Containers}: Containers take an alternative approach, by bunding the application with its necessary binaries, libraries and dependencies into a single package. Unlike traditional techniques, containers mimic the host operating system, giving each container the illusion of being isolated and that it is interactiting with its own virtual kernal, while the truth is, that all containers on host are sharing the same kernal. As demonstrated in \autoref{fig:Containers}. This shared kernal design alloes one \ac{OS} instance to run several isolated containers, making them lightweight and faster to boot compared to virtual machines. This efficiency is resource management and the accelerated application delivery highlights the advantages of containers over \ac{VMs}.
           \input{figures/containers}
@@ -40,11 +40,29 @@ We can distinguish between two primary forms of virtualization \cite{CON_VMS, CO
           \textbf{Disadvantages}
           \begin{itemize}
               \item \textbf{Shared host exploits}: Containers are built on a shared hardware infrastructure below the operating system layer. That means it is possible that an exploit in one container could break out of the container and affect the hardware that is shared with other containers. This poses a security risk when using one of these public images as they may contain exploits or be vulnerable to being hijacked by nefarious actors.
-              % TODO add one more cons 
+                % TODO add one more cons 
           \end{itemize}
 \end{enumerate}
 \subsection{Docker}
+Docker \footnote{https://docs.docker.com/}'\footnote{https://hub.docker.com/} \cite{Intro_Docker} is the leading containerization technology in the market taht provides open-source tools to simplify the creating, deployment, and management of containerized applications. It serves a wide range of users, from open-source enthusiasts to large-scale enterprises with its versatile versions. 
+\newline
+Docker's containerization technology is predicated upon capabilities of the linux kernal, basically exploting mechanisms such as \ac{cgroups} and kernal namespaces, in order to create and manage environments that are somewhat isolated, allowing for efficient resource management. 
+These \ac{cgroups} are equiped with the capabilities for monitoring and managing resources such as CPU, disk IO, network, and memory for a collection of processes. 
+Additionally, namespaces play a critical role is ensuring that process groups and resources are isolated from ane another. 
+In docker, each container is assigned a unique set of namespaces and processes, which allows it to have its own view of the system, including its own network interfaces and file systems.
+
 \subsection{Why Use Docker in Machine Learning}
+The lifecycle of machine learning involves a series of steps aimed at leveraging \ac{ML} and \ac{AI} technologies to meet business goals. 
+This include the initial setting of both business and project-specific goals, acquiring and analyzing relevant data, applying different algorithms to model the data, interpreting the outcomes, and sharing them with stakeholders, and finally deploying and sustaining the project.
+Given the rapid pace of technological and market evolution, it is essential to go through multiple iterations and experiments in order to swiftly adapt to the variuos changes and to ensure a seccessful deployment of reliable project that satisfy business expectations \cite{Docker_Archi}.
+\newline
+Docker encapsulate the entire dependencies of a project down to the host \ac*{OS}. This helps prevent issues, 
+where projekts function smoothly on one machine and but preforms horribly on another (\autoref{fig:It_Worked_On_My_Machine}). 
+By using Docker, we are essentially sharing our entire environment rather than just the dependencies and source code. 
+Doing so, allows for seamless collaboration across machine learning projects while ensuring consistency, portability, and effective dependency management. 
+Compared to \ac*{VMs} docker is lightweight, which in turn inhances the speed of each iteration and allows for faster deployment of the project.
+\input{figures/it_worked_on_my_machine}
+
 \subsection{Example}
 
 %% adding a new page to seperate this two sections (for now)
