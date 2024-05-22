@@ -40,30 +40,47 @@ We can distinguish between two primary forms of virtualization \cite{CON_VMS, CO
           \textbf{Disadvantages}
           \begin{itemize}
               \item \textbf{Shared host exploits}: Containers are built on a shared hardware infrastructure below the operating system layer. That means it is possible that an exploit in one container could break out of the container and affect the hardware that is shared with other containers. This poses a security risk when using one of these public images as they may contain exploits or be vulnerable to being hijacked by nefarious actors.
-                % TODO add one more cons 
+                    % TODO add one more cons 
           \end{itemize}
 \end{enumerate}
 \subsection{Docker}
-Docker \footnote{https://docs.docker.com/}'\footnote{https://hub.docker.com/} \cite{Intro_Docker} is the leading containerization technology in the market taht provides open-source tools to simplify the creating, deployment, and management of containerized applications. It serves a wide range of users, from open-source enthusiasts to large-scale enterprises with its versatile versions. 
+Docker\footnote{https://docs.docker.com/}'\footnote{https://hub.docker.com/} \cite{Intro_Docker} is the leading containerization technology in the market taht provides open-source tools to simplify the creating, deployment, and management of containerized applications. It serves a wide range of users, from open-source enthusiasts to large-scale enterprises with its versatile versions.
 \newline
-Docker's containerization technology is predicated upon capabilities of the linux kernal, basically exploting mechanisms such as \ac{cgroups} and kernal namespaces, in order to create and manage environments that are somewhat isolated, allowing for efficient resource management. 
-These \ac{cgroups} are equiped with the capabilities for monitoring and managing resources such as CPU, disk IO, network, and memory for a collection of processes. 
-Additionally, namespaces play a critical role is ensuring that process groups and resources are isolated from ane another. 
+Docker's containerization technology is predicated upon capabilities of the linux kernal, basically exploting mechanisms such as \ac{cgroups} and kernal namespaces, in order to create and manage environments that are somewhat isolated, allowing for efficient resource management.
+These \ac{cgroups} are equiped with the capabilities for monitoring and managing resources such as CPU, disk IO, network, and memory for a collection of processes.
+Additionally, namespaces play a critical role is ensuring that process groups and resources are isolated from ane another.
 In docker, each container is assigned a unique set of namespaces and processes, which allows it to have its own view of the system, including its own network interfaces and file systems.
 
 \subsection{Why Use Docker in Machine Learning}
-The lifecycle of machine learning involves a series of steps aimed at leveraging \ac{ML} and \ac{AI} technologies to meet business goals. 
+The lifecycle of machine learning involves a series of steps aimed at leveraging \ac{ML} and \ac{AI} technologies to meet business goals.
 This include the initial setting of both business and project-specific goals, acquiring and analyzing relevant data, applying different algorithms to model the data, interpreting the outcomes, and sharing them with stakeholders, and finally deploying and sustaining the project.
 Given the rapid pace of technological and market evolution, it is essential to go through multiple iterations and experiments in order to swiftly adapt to the variuos changes and to ensure a seccessful deployment of reliable project that satisfy business expectations \cite{Docker_Archi}.
 \newline
-Docker encapsulate the entire dependencies of a project down to the host \ac*{OS}. This helps prevent issues, 
-where projekts function smoothly on one machine and but preforms horribly on another (\autoref{fig:It_Worked_On_My_Machine}). 
-By using Docker, we are essentially sharing our entire environment rather than just the dependencies and source code. 
-Doing so, allows for seamless collaboration across machine learning projects while ensuring consistency, portability, and effective dependency management. 
+Docker encapsulate the entire dependencies of a project down to the host \ac*{OS}. This helps prevent issues,
+where projekts function smoothly on one machine and but preforms horribly on another (\autoref{fig:It_Worked_On_My_Machine}).
+By using Docker, we are essentially sharing our entire environment rather than just the dependencies and source code.
+Doing so, allows for seamless collaboration across machine learning projects while ensuring consistency, portability, and effective dependency management.
 Compared to \ac*{VMs} docker is lightweight, which in turn inhances the speed of each iteration and allows for faster deployment of the project.
 \input{figures/it_worked_on_my_machine}
 
-\subsection{Example}
+\subsection{Usage Scenario}
+Before I start showcasing the usage of docker in machine learning, a machine learning project has to be created first. Under this \href{https://github.com/linuxUser10111/thesis}{github repository}\footnote{https://github.com/linuxUser10111/thesis} you can find a \ac{CNN} project that takes a 2D picture of hand-written numbers and tries to prodict the number written on that picture.
+The structure of the is as shown in below.
+\input{data/working-directory}
+\newline
+I used the MNIST library to train the model, which is a dataset of 70,000 images of hand-written numbers. 
+The dataset is split into 60,000 training images and 10,000 testing images. 
+The model is trained for 50 epochs with a batch size of 512.
+\newline
+Now that the foundation is set, we can start using docker to encapsulate the project.
+% \newline
+% https://thinksys.com/devops/docker-components/#:~:text=The%20basic%20components%20include%20Docker,the%20advanced%20components%20of%20Docker.
+% First it is important to distinguish between docker components:
+% \begin{itemize}
+%     \item \textbf{Docker Client}: The docker client is the interface that allows us to interact with the docker daemon. It is the command line interface that we use to create, run, and manage containers. The docker client can be installed on any operating system, including Windows, Linux, and macOS. It is available as a standalone executable or as a package that can be installed through a package manager such as apt or yum. The docker client can be used to manage both local and remote docker daemons. It is also possible to use the docker client to manage multiple docker daemons at once.
+%     \item \textbf{Docker Image}: A docker image is a read-only template that contains all the necessary instructions and dependencies to create a docker container. It is essentially a snapshot of a docker container that can be used to create new containers. Docker images are built using a dockerfile, which is a text file that contains a set of instructions for building the image. These instructions can include commands for installing software, copying files, and setting up environment variables. Docker images can be stored in a docker registry, which is a centralized repository for docker images. This allows developers to share and reuse docker images, making it easier to create and manage containers.
+%     \item \textbf{Docker Daemon}: The docker daemon is the background service that manages docker containers. It is responsible for creating and running containers, managing resources, and communicating with the docker client. The docker daemon can be installed on any operating system, including Windows, Linux, and macOS. It is available as a standalone executable or as a package that can be installed through a package manager such as apt or yum. The docker daemon can be configured to run in the background as a system service or as a standalone process. It can also be configured to run on a remote server, allowing developers to manage containers remotely.
+% \end{itemize}
 
 %% adding a new page to seperate this two sections (for now)
 \newpage
