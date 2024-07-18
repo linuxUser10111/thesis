@@ -3,7 +3,8 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 from PIL import Image
 import pickle 
-from ml_model import img_rows, img_cols, score
+from ml_model import img_rows, img_cols, upload_model_and_score
+import os.path
 
 
 app = Flask(__name__)
@@ -23,6 +24,11 @@ def convertPictureToData(picture):
 
 @app.get("/")
 def root(): 
+    if not os.path.exists('./score.txt'):
+        print('retrain the model and upload files')
+        upload_model_and_score()
+    score_file = open('score.txt', 'r')
+    score = score_file.readlines()
     return render_template('homepage.html', accuracy=score[1] * 100)
     
 
@@ -55,5 +61,3 @@ def prediction():
 
 if __name__ == "__main__": 
     app.run(host="127.0.0.1", port=8080, debug=True)
-
-# how to convert a picture into data for our neural network?

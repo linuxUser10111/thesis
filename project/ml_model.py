@@ -66,19 +66,27 @@ def fit_model(X_train, X_valid, y_train, y_valid, early_stopping, input_shape):
 
 
 # train the model and calculate accurecy before starting server 
-X_train, X_test, y_train, y_test, input_shape = train_test_split()
+def train_model():
+    X_train, X_test, y_train, y_test, input_shape = train_test_split()
     
-X_train = X_train.astype('float32')
-X_test = X_test.astype('float32')
-X_train /= 255
-X_test /= 255
+    X_train = X_train.astype('float32')
+    X_test = X_test.astype('float32')
+    X_train /= 255
+    X_test /= 255
     
-y_train = to_categorical(y_train, num_classes)
-y_test = to_categorical(y_test, num_classes)
+    y_train = to_categorical(y_train, num_classes)
+    y_test = to_categorical(y_test, num_classes)
     
-early_stopping = get_early_stopping()
+    early_stopping = get_early_stopping()
     
-model = fit_model(X_train=X_train, X_valid=X_test, y_train=y_train, y_valid=y_test, early_stopping=early_stopping, input_shape=input_shape)
-score = model.evaluate(X_test, y_test)
+    model = fit_model(X_train=X_train, X_valid=X_test, y_train=y_train, y_valid=y_test, early_stopping=early_stopping, input_shape=input_shape)
+    score = model.evaluate(X_test, y_test)
+    
+    return model, score
 
-joblib.dump(model, 'mnist_model.pkl')
+def upload_model_and_score():
+    model, score = train_model()
+    joblib.dump(model, 'mnist_model.pkl')
+    
+    with open('score.txt', 'a') as the_file:
+        the_file.write(score)
