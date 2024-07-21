@@ -42,7 +42,7 @@ jobs:
       - name: Pull Docker image from Dev
         run: |
           docker pull ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }}
-          docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source }}
+          docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
 
       - name: Authenticate to PROD Destination
         if: ${{ github.event.inputs.environment }} == prod
