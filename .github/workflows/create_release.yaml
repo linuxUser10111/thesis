@@ -2,7 +2,7 @@ name: Create Release
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       source_version:
         required: true
         describtion: "docker image tag to release."
@@ -42,7 +42,7 @@ jobs:
       - name: Pull Docker image from Dev
         run: docker pull ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }}
 
-      - name: Authenticate to Destination
+      - name: Authenticate to PROD Destination
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           if: ${{ github.event.inputs.environment }} == prod
@@ -50,7 +50,7 @@ jobs:
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_PROD_CREDENTIALS }}
           export_default_credentials: true
 
-      - name: Authenticate to Destination
+      - name: Authenticate to stage Destination
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           if: ${{ github.event.inputs.environment }} == stage
