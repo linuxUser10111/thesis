@@ -45,10 +45,16 @@ jobs:
       - name: Authenticate to Destination
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
-          project_id: ${{ secrets.GOOGLE_PROJECT }}_${{ github.event.inputs.environment }}
           if: ${{ github.event.inputs.environment }} == prod
+          project_id: ${{ secrets.GOOGLE_PROJECT }}-${{ github.event.inputs.environment }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_PROD_CREDENTIALS }}
+          export_default_credentials: true
+
+      - name: Authenticate to Destination
+        uses: google-github-actions/setup-gcloud@v0.5.0
+        with:
           if: ${{ github.event.inputs.environment }} == stage
+          project_id: ${{ secrets.GOOGLE_PROJECT }}-${{ github.event.inputs.environment }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_STAGE_CREDENTIALS }}
           export_default_credentials: true
 
