@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
 
   push:
+    paths_ignore:
+      - project/docker_solution/**
+      - project/hybrid_solution/**
+
     branches: 
     - 'master'
 

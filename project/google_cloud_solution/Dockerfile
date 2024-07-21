@@ -7,6 +7,9 @@ WORKDIR /app
 # copy the requirements file to speed up the building process
 COPY requirements.txt /app
 
+# test github action
+RUN echo 'finished configuring'
+
 # install the dependencies and packages in the requirements file
 RUN apt-get -y update
 RUN apt-get update && apt-get install -y python3 python3-pip
