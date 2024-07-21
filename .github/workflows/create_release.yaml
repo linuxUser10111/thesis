@@ -58,6 +58,11 @@ jobs:
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_STAGE_CREDENTIALS }}
           export_default_credentials: true
 
+      - name: Configure Destination Docker 
+        run: |
+          gcloud auth configure-docker --quiet
+          gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
+
       - name: Push Docker image
         run: |
           docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source }}
