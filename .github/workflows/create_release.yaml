@@ -44,18 +44,4 @@ jobs:
         run: |
           docker pull ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }}
           docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
-      
-      - name: Authenticate to PROD Destination
-        uses: google-github-actions/setup-gcloud@v0.5.0
-        with:
-          project_id: ${{ secrets.GOOGLE_PROJECT }}-prod
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_PROD_CREDENTIALS }}
-          export_default_credentials: true
-
-      - name: Configure Destination Docker 
-        run: |
-          gcloud auth configure-docker --quiet
-          gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
-      
-      - name: Push Docker image
-        run: docker push ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
+          docker push ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
