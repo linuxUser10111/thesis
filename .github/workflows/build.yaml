@@ -5,6 +5,10 @@ on:
     branches: 
     - 'main'
 
+defaults:
+  run:
+    working-directory: google_cloud_solution
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
