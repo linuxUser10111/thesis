@@ -45,11 +45,6 @@ jobs:
           docker pull ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }}
           docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
   
-  push_docker_to_destination:
-    name: Push Docker image to Dest
-    runs-on: ubuntu-latest
-    needs: [ pull_and_push ]
-    steps:
       - name: Checkout
         uses: actions/checkout@v3
 
