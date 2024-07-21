@@ -18,7 +18,7 @@ on:
 
 env:
   DOCKER_IMAGE_DEV: europe-west3-docker.pkg.dev/bachlelor-ml/ml-docker-registry/ml_docker
-  DOCKER_IMAGE_DEST: europe-west3-docker.pkg.dev/bachlelor-ml-${{ github.event.inputs.environment  }}/ml-docker-registry/ml_docker
+  DOCKER_IMAGE_DEST: europe-west3-docker.pkg.dev/bachelor-ml-prod/ml-docker-registry/ml_docker
 
 jobs:
   pull_and_push:
