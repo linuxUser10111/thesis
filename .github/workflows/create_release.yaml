@@ -53,7 +53,7 @@ jobs:
 #          export_default_credentials: true
       
       - name: Authenticate to PROD Destination
-        if: ${{ github.event.inputs.environment }} == 'prod'
+#        if: ${{ github.event.inputs.environment }} == 'prod'
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}-prod
