@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 from PIL import Image
 import pickle 
-from ml_model import img_rows, img_cols, model_file_name, score_file_name, upload_model_and_score
+from project.ml_model import img_rows, img_cols, model_file_name, score_file_name, upload_model_and_score
 import os.path
 
 
@@ -58,6 +58,3 @@ def prediction():
     
     return render_template('prediction.html', prediction= predicted_value, probabelity=probabelity)
 
-
-if __name__ == "__main__": 
-    app.run(host="127.0.0.1", port=8080, debug=True)

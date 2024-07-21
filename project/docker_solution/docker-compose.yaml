@@ -2,12 +2,15 @@
 
 services:
   debug:
-    image: debug-container-image
+    image: debug-container-image-2
     build: 
       context: .
     ports:
       - 80:80
       - 5678:5678
+      - 8080:8080
+    env_file:
+      - ./.env.dev
 
 # run docker locally
 
@@ -15,7 +18,7 @@ services:
 #   app:
 #     build: .
 #     container_name: simple-python-server
-#     command: gunicorn main:app --bind 0.0.0.0:80 --reload
+#     command: gunicorn manage:app --bind 0.0.0.0:80 --reload
 #     ports:
 #       - 8080:80
 #     volumes:

@@ -15,9 +15,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into /app 
 COPY . /app
 
-# Debug main.py using docker locally
-CMD ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "--wait-for-client", "manage.py", "runserver", "0.0.0.0:80"]
-
-# Run main.py when the container launches
-
-# CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:80", "__init__:app"]
+CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:80", "main:app"]
