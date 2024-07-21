@@ -11,11 +11,6 @@ defaults:
   run:
     working-directory: project/google_cloud_solution
 
-permissions:
-  contents: read
-  id-token: write
-  checks: write
-
 env:
   GCP_PROJECT: bachelor-ml
   IMAGE_NAME: europe-west3-docker.pkg.dev/bachlelor-ml/ml-docker-registry/ml_docker
