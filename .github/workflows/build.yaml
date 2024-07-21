@@ -19,7 +19,7 @@ jobs:
     - name: Install gcloud Cli
       uses: google-github-actions/setup-gcloud@v0
       with:
-        project_id: ${{ sectrets.GOOGLE_PROJECT }}
+        project_id: ${{ secrets.GOOGLE_PROJECT }}
         service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
         export_default_credentials: true
 
