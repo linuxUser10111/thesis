@@ -5,8 +5,10 @@ on:
 
   push:
     paths_ignore:
-      - project/docker_solution/**
-      - project/hybrid_solution/**
+      - 'project/docker_solution/**'
+      - 'project/hybrid_solution/**'
+      - '.github/**'
+      - '*.md'
 
     branches: 
     - 'master'
