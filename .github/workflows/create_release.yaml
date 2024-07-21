@@ -45,7 +45,7 @@ jobs:
           docker tag ${{ env.DOCKER_IMAGE_DEV }}:${{ github.event.inputs.source_version }} ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
       
       - name: Authenticate to stage Destination
-        if: ${{ github.event.inputs.environment }} == stage
+        if: ${{ github.event.inputs.environment }} == 'stage'
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}-stage
@@ -53,7 +53,7 @@ jobs:
           export_default_credentials: true
       
       - name: Authenticate to PROD Destination
-        if: ${{ github.event.inputs.environment }} == prod
+        if: ${{ github.event.inputs.environment }} == 'prod'
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}-prod
