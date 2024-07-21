@@ -48,7 +48,7 @@ jobs:
         if: ${{ github.event.inputs.environment }} == stage
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
-          project_id: ${{ secrets.GOOGLE_PROJECT }}-prod
+          project_id: ${{ secrets.GOOGLE_PROJECT }}-stage
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_STAGE_CREDENTIALS }}
           export_default_credentials: true
       
@@ -56,7 +56,7 @@ jobs:
         if: ${{ github.event.inputs.environment }} == prod
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
-          project_id: ${{ secrets.GOOGLE_PROJECT }}-stage
+          project_id: ${{ secrets.GOOGLE_PROJECT }}-prod
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_PROD_CREDENTIALS }}
           export_default_credentials: true
 
