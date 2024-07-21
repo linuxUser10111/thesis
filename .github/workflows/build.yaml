@@ -16,7 +16,7 @@ env:
   IMAGE_NAME: europe-west3-docker.pkg.dev/bachlelor-ml/ml-docker-registry/ml_docker
 
 jobs:
-  deploy:
+  Buidl_and_deploy_docker:
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
