@@ -1,7 +1,7 @@
 name: Create Release
 
 on:
-  wordflow_dispatch:
+  workflow_dispatch:
     input:
       source_version:
         required: true
