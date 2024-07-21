@@ -6,8 +6,6 @@ import pickle
 from project.ml_model import img_rows, img_cols, model_file_name, score_file_name, upload_model_and_score
 import os.path
 
-# test github action
-
 app = Flask(__name__)
 
 # hear starts the Rest API
