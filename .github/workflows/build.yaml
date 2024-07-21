@@ -19,33 +19,33 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Code Checkout
-      uses: actions/checkout@v3
+      - name: Code Checkout
+        uses: actions/checkout@v3
 
-    - name: Set current date as env variable
-      run: echo "TARGET_VERSION=`echo $(date +'%Y-%m-%dT%H-%M-%S')`" >> $GITHUB_ENV
+      - name: Set current date as env variable
+        run: echo "TARGET_VERSION=`echo $(date +'%Y-%m-%dT%H-%M-%S')`" >> $GITHUB_ENV
 
-    - name: Install gcloud Cli
-      uses: google-github-actions/setup-gcloud@v0.5.0
-      with:
-        project_id: ${{ secrets.GOOGLE_PROJECT }}
-        service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
-        export_default_credentials: true
+      - name: Install gcloud Cli
+        uses: google-github-actions/setup-gcloud@v0.5.0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
+          export_default_credentials: true
 
-    - name: Configure Docker 
-      run: |
-        gcloud auth configure-docker --quiet
-        gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
+      - name: Configure Docker 
+        run: |
+          gcloud auth configure-docker --quiet
+          gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
+        
+      - name: Build Docker
+        runs: |
+          docker build . -t $IMAGE_NAME:${{ env.TARGET_VERSION }}
       
-    - name: Build Docker
-      runs: |
-        docker build . -t $IMAGE_NAME:${{ env.TARGET_VERSION }}
-    
-    - name: Push Docker image
-      run:  docker push $IMAGE_NAME:${{ env.TARGET_VERSION }}
+      - name: Push Docker image
+        run:  docker push $IMAGE_NAME:${{ env.TARGET_VERSION }}
 
-    - name: Save target version for next job
-      id: target_version_holder
-      run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> $GITHUB_OUTPUT
-      
+      - name: Save target version for next job
+        id: target_version_holder
+        run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> $GITHUB_OUTPUT
+        
 
