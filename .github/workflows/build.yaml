@@ -3,7 +3,7 @@ name: Build and Deploy Docker
 on: 
   push:
     branches: 
-    - 'main'
+    - 'master'
 
 defaults:
   run:
