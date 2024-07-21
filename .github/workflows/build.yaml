@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: google_cloud_solution
+    working-directory: project/google_cloud_solution
     
 jobs:
   deploy:
