@@ -66,4 +66,4 @@ jobs:
           gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
 
       - name: Push Docker image
-        run: docker push ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source }}
+        run: docker push ${{ env.DOCKER_IMAGE_DEST }}:${{ github.event.inputs.source_version }}
