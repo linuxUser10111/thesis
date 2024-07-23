@@ -87,7 +87,7 @@ jobs:
 
       - name: Terraform Init
         run: |
-          terraform init -backend-config=../${{ env.GCP_PROJECT}}_app_bachend.conf
+          terraform init -backend-config=../configs/${{ env.GCP_PROJECT}}_app_bachend.conf
 
       - name: Terraform Validate
         run: terraform validate -no-color
