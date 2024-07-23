@@ -9,7 +9,7 @@ variable "image_tag" {
   description = "Docker image tag to use in the environment"
 }
 
-variable "reqion" {
+variable "region" {
   type        = string
   default     = "eu-west3"
   description = "region for the app"
