@@ -22,7 +22,7 @@ env:
   IMAGE_NAME: europe-west3-docker.pkg.dev/bachlelor-ml/ml-docker-registry/ml_docker
 
 jobs:
-  Buidl_and_deploy_docker:
+  Build_and_deploy_docker:
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
@@ -31,7 +31,7 @@ jobs:
       - name: Set current date as env variable
         run: echo "TARGET_VERSION=`echo $(date +'%Y-%m-%dT%H-%M-%S')`" >> $GITHUB_ENV
 
-      - name: Install gcloud Cli
+      - name: Authentication
         uses: google-github-actions/setup-gcloud@v0.5.0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}
@@ -53,5 +53,51 @@ jobs:
       - name: Save target version for next job
         id: target_version_holder
         run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> $GITHUB_OUTPUT
-        
+
+  deploy_docker_to_Cloud_Run:
+    name: Deploy Docker image on cloud run container
+    needs: [ Build_and_deploy_docker ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project/google_cloud_solution/terraform/application/
+    
+    steps:
+    
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Authentication
+        uses: google-github-actions/setup-gcloud@v0.5.0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
+          export_default_credentials: true
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Setup Terraform variables
+        working-directory: ./terraform/application
+        id: vars
+        run: |-
+          cat > pipeline-auto.tfvars <<EOF
+          image_tag = "${{needs.Build_and_deploy_docker.outputs.target_version}}"
+          EOF
+
+      - name: Terraform Init
+        run: |
+          terraform init -backend-config=../${{ env.GCP_PROJECT}}_app_bachend.conf
+
+      - name: Terraform Validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        run: terraform plan -input=false -var-file=../${{ env.GCP_PROJECT}}_config.tfvars -no-color -out=tf_plan.out
+
+
+      - name: Terraform Apply
+        run: terraform apply -input=false -auto-approve tf_plan.out
+
+      
 
