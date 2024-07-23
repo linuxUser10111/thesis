@@ -13,6 +13,11 @@ on:
     branches: 
     - 'master'
 
+permissions:
+  content: read
+  id-token: write
+  checks: write
+
 defaults:
   run:
     working-directory: project/google_cloud_solution
