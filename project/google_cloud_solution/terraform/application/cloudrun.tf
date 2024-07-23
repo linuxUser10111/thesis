@@ -21,6 +21,11 @@ resource "google_cloud_run_service" "ml_project" {
     percent         = 100
     latest_revision = true
   }
+
+  depends_on = [
+    google_project_service.gcp_services, google_service_account.app_service_account,
+    google_service_account_iam_member.iam_binding_instanceuser_service_account,
+  ]
 }
 
 resource "google_cloud_run_service_iam_member" "allUsers" {

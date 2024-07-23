@@ -12,3 +12,9 @@ resource "google_project_iam_member" "app_cloudrun_sa_role_monitoring" {
     members  = ["serviceAccount:${google_service_account.app_service_account.email}"]
 }
 
+resource "google_project_iam_member" "iam_binding_instanceuser_service_account" {
+    project = var.project
+    role    = "roles/cloudsql.instanceuser"
+    members  = ["serviceAccount:${google_service_account.app_service_account.email}"]
+}
+
