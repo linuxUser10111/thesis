@@ -91,14 +91,19 @@ jobs:
           EOF
 
       - name: Terraform Init
+        working-directory: project/google_cloud_solution/terraform/application
+        id: init
         run: |
-          terraform init -backend-config=../project/google_cloud_solution/terraform/configs/${{ env.GCP_PROJECT}}_app_backend.conf
+          terraform init -backend-config=../configs/${{ env.GCP_PROJECT}}_app_backend.conf
 
       - name: Terraform Validate
+        id: validate
         run: terraform validate -no-color
 
       - name: Terraform Plan
-        run: terraform plan -input=false -var-file=../project/google_cloud_solution/terraform/configs/${{ env.GCP_PROJECT}}_config.tfvars -no-color -out=tf_plan.out
+        working-directory: project/google_cloud_solution/terraform/application
+        id: plan
+        run: terraform plan -input=false -var-file=../configs/${{ env.GCP_PROJECT}}_config.tfvars -no-color -out=tf_plan.out
 
 
       - name: Terraform Apply
