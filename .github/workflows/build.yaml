@@ -78,7 +78,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Setup Terraform variables
-        working-directory: ./terraform/application
+        working-directory: project/google_cloud_solution/terraform/application
         id: vars
         run: |-
           cat > pipeline-auto.tfvars <<EOF
