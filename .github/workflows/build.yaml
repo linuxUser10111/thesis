@@ -93,7 +93,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          terraform init -backend-config="bucket=state-europe-west3-bachelor-ml" -backend-config="terraform/app/inftrastructure/state"
+          terraform init -backend-config="bucket=state-europe-west3-bachelor-ml"
 
       - name: Terraform Validate
         id: validate
