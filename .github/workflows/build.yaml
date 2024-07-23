@@ -75,7 +75,7 @@ jobs:
           export_default_credentials: true
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v1
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
@@ -90,16 +90,24 @@ jobs:
       - name: Terraform Init
         run: |
           terraform init -backend-config=../configs/${{ env.GCP_PROJECT}}_app_bachend.conf
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
 
       - name: Terraform Validate
         run: terraform validate -no-color
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
 
       - name: Terraform Plan
         run: terraform plan -input=false -var-file=../${{ env.GCP_PROJECT}}_config.tfvars -no-color -out=tf_plan.out
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
 
 
       - name: Terraform Apply
         run: terraform apply -input=false -auto-approve tf_plan.out
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
 
       
 

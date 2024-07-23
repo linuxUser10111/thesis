@@ -3,7 +3,10 @@ variable "gcp_service_list" {
   description = "services necessary for the project"
   default     = [
      "run.googleapis.com", 
-     "containerregistry.googleapis.com"
+     "containerregistry.googleapis.com",
+     "vpcaccess.googleapis.com",
+     "appengine.googleapis.com",
+     "run.googleapis.com",
     ]
 }
 
