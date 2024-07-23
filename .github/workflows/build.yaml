@@ -86,7 +86,7 @@ jobs:
         working-directory: project/google_cloud_solution/terraform/application
         id: vars
         run: |-
-          cat > pipeline-auto.tfvars <<EOF
+          cat > pipeline.auto.tfvars <<EOF
           image_tag = "${{needs.Build_and_deploy_docker.outputs.target_version}}"
           EOF
 
