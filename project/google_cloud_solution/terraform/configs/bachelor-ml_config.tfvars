@@ -1,1 +1,1 @@
-project = "bachelor-ml"
+project = "bachlelor-ml"

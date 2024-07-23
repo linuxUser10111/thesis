@@ -18,3 +18,9 @@ resource "google_project_iam_member" "iam_binding_instanceuser_service_account" 
     members  = ["serviceAccount:${google_service_account.app_service_account.email}"]
 }
 
+resource "google_project_iam_member" "iam_binding_cloudsqladmin_service_account" {
+    project = var.project
+    role    = "roles/cloudsql.admin"
+    members  = ["serviceAccount:${google_service_account.app_service_account.email}"]
+}
+
