@@ -24,7 +24,7 @@ resource "google_cloud_run_service" "ml_project" {
 
   depends_on = [
     google_project_service.gcp_services, google_service_account.app_service_account,
-    google_service_account_iam_member.iam_binding_instanceuser_service_account,
+    google_project_iam_member.iam_binding_instanceuser_service_account,
   ]
 }
 
