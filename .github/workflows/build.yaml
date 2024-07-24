@@ -60,7 +60,7 @@ jobs:
 
       - name: Save target version for next job
         id: target_version_holder
-        run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> "$GITHUB_OUTPUT"
+        run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> $GITHUB_OUTPUT
 
   deploy_docker_to_Cloud_Run:
     name: Deploy Docker image on cloud run container
