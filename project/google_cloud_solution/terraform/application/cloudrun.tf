@@ -50,9 +50,9 @@ resource "google_cloud_run_service" "cloudrun_ml_project" {
 
 resource "google_cloud_run_service_iam_member" "allUsers" {
     project     = "${var.project}"
-    service     = google_cloud_run_service.ml_project.name
-    location    = google_cloud_run_service.ml_project.location
+    service     = google_cloud_run_service.cloudrun_ml_project.name
+    location    = google_cloud_run_service.cloudrun_ml_project.location
     role        = "roles/run.invoker"
     member      = "allUsers"
-    depends_on  = [google_cloud_run_service.ml_project]
+    depends_on  = [google_cloud_run_service.cloudrun_ml_project]
 }
