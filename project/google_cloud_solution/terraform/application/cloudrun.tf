@@ -1,7 +1,7 @@
 resource "google_cloud_run_service" "ml_project" {
   name                       = "ml-project-cloudrun"
   project                    = var.project
-  provider                   = "google-beta"
+  provider                   = google-beta
   location                   = var.region
   autogenerate_revision_name = true
 
