@@ -28,8 +28,11 @@ resource "google_cloud_run_service" "ml_project" {
 
     metadata {
       annotations = {
-        "autoscaling.knative.dev/minScale"    = 0
-        "autoscaling.knative.dev/maxScale"    = 3
+        "run.googleapis.com/execution-environment"  = "gen2"
+        "autoscaling.knative.dev/minScale"          = 0
+        "autoscaling.knative.dev/maxScale"          = 3
+        "run.googleapis.com/cpu-throttling"         = true
+        "run.googleapis.com/startup-cpu-boost"      = true
       }
     }
   }
