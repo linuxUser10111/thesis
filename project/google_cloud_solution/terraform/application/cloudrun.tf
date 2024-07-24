@@ -1,21 +1,29 @@
 resource "google_cloud_run_service" "ml_project" {
   name                       = "ml-project-cloudrun"
-  location                   = "europe-west3"
+  location                   = var.region
   project                    = var.project
   autogenerate_revision_name = true
 
   template {
     spec {
+      timeout_seconds= "3600"
       containers {
         image = "europe-west3-docker.pkg.dev/${var.project}/ml-docker-registry/ml_docker:${var.image_tag}"
         resources {
             limits = {
-                cpu    = "1"
-                memory = "2Gi"
+                cpu    = "2000m"
+                memory = "5Gi"
             }
         }
       }
       service_account_name = "${var.service_account_app}@${var.project}.iam.gserviceaccount.com"
+    }
+
+    metadata {
+      annotations = {
+        "autoscaling.knative.dev/minScale"    = 0
+        "autoscaling.knative.dev/maxScale"    = 3
+      }
     }
   }
 
