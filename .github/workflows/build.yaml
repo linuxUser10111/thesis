@@ -64,7 +64,7 @@ jobs:
 
   deploy_docker_to_Cloud_Run:
     name: Deploy Docker image on cloud run container
-    needs: [ Build_and_deploy_docker ]
+    needs: Build_and_deploy_docker 
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -88,9 +88,11 @@ jobs:
       - name: Setup Terraform variables
         working-directory: project/google_cloud_solution/terraform/application
         id: vars
+        env:
+          TARGET_VERSION: ${{ needs.Build_and_deploy_docker.outputs.target_version }}
         run: |-
           cat > pipeline.auto.tfvars <<EOF
-          image_tag = "${{ needs.Build_and_deploy_docker.outputs.target_version }}"
+          image_tag = "$TARGET_VERSION"
           EOF
 
       - name: Terraform Init
