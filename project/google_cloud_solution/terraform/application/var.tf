@@ -11,7 +11,7 @@ variable "image_tag" {
 
 variable "region" {
   type        = string
-  default     = "eurpe-west3"
+  default     = "europe-west3"
   description = "region for the app"
 }
 

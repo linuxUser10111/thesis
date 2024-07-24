@@ -10,10 +10,10 @@ resource "google_cloud_run_service" "ml_project" {
       containers {
         image = "europe-west3-docker.pkg.dev/${var.project}/ml-docker-registry/ml_docker:${var.image_tag}"
         resources {
-            limits = {
-                cpu    = "2000m"
-                memory = "5Gi"
-            }
+          limits = {
+            cpu    = "2000m"
+            memory = "5Gi"
+          }
         }
       }
       service_account_name = "${var.service_account_app}@${var.project}.iam.gserviceaccount.com"
