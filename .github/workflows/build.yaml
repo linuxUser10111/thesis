@@ -88,11 +88,9 @@ jobs:
       - name: Setup Terraform variables
         working-directory: project/google_cloud_solution/terraform/application
         id: vars
-        env:
-          TARGET_VERSION: ${{ needs.Build_and_deploy_docker.outputs.target_version }}
         run: |-
           cat > pipeline.auto.tfvars <<EOF
-          image_tag = "$TARGET_VERSION"
+          image_tag = "${{ needs.Build_and_deploy_docker.outputs.target_version }}"
           EOF
 
       - name: Terraform Init
