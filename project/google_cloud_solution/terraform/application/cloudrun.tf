@@ -1,4 +1,4 @@
-resource "google_cloud_run_service" "ml_project" {
+resource "google_cloud_run_service" "cloudrun_ml_project" {
   name                       = "ml-project-cloudrun"
   project                    = var.project
   provider                   = google-beta

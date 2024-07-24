@@ -29,6 +29,9 @@ env:
 jobs:
   Build_and_deploy_docker:
     runs-on: ubuntu-latest
+    outputs:
+      target_version: ${{ steps.target_version_holder.ouputs.TARGET_VERSION }}
+      
     steps:
       - name: Code Checkout
         uses: actions/checkout@v3
