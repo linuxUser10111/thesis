@@ -1,8 +1,15 @@
 resource "google_cloud_run_service" "ml_project" {
   name                       = "ml-project-cloudrun"
-  location                   = var.region
   project                    = var.project
+  provider                   = "google-beta"
+  location                   = var.region
   autogenerate_revision_name = true
+
+  metadata {
+    annotations = {
+      "run.googleapis.com/ingress" = "all"
+    }
+  }
 
   template {
     spec {

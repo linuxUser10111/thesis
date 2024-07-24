@@ -15,4 +15,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into /app 
 COPY . /app
 
-CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:80", "main:app"]
+EXPOSE 8080
+
+CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:8080", "main:app"]
