@@ -16,6 +16,9 @@ on:
       description: "image to deploy"
       type: string
 
+
+run-name: Deploy ${{github.event.inputs.image}} to ${{github.event.inputs.environment}} environment by ${{ github.actor }}
+
 permissions:
   contents: read
   id_token: write
