@@ -91,9 +91,10 @@ jobs:
           EOF
 
       - name: Terraform Init
+        working-directory: project/google_cloud_solution/terraform/application
         id: init
         run: |
-          terraform init -backend-config="bucket=state-europe-west3-bachelor-ml"
+          terraform init -backend-config=../configs/${{ env.GCP_PROJECT}}_app_backend.conf
 
       - name: Terraform Validate
         id: validate
