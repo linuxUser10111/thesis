@@ -17,7 +17,7 @@ variable "region" {
 
 variable "service_account_app" {
   type        = string
-  default     = "service-account"
+  default     = "application-service-account"
   description = "service account to use for the app"
 }
 
