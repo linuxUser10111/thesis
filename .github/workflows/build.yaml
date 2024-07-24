@@ -30,7 +30,7 @@ jobs:
   Build_and_deploy_docker:
     runs-on: ubuntu-latest
     outputs:
-      target_version: ${{ steps.target_version_holder.ouputs.TARGET_VERSION }}
+      target_version: ${{ steps.target_version_holder.outputs.TARGET_VERSION }}
 
     steps:
       - name: Code Checkout
