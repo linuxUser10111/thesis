@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       target_version: ${{ steps.target_version_holder.ouputs.TARGET_VERSION }}
-      
+
     steps:
       - name: Code Checkout
         uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
 
       - name: Save target version for next job
         id: target_version_holder
-        run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> $GITHUB_OUTPUT
+        run: echo "TARGET_VERSION=${{ env.TARGET_VERSION }}" >> "$GITHUB_OUTPUT"
 
   deploy_docker_to_Cloud_Run:
     name: Deploy Docker image on cloud run container
@@ -90,7 +90,7 @@ jobs:
         id: vars
         run: |-
           cat > pipeline.auto.tfvars <<EOF
-          image_tag = "${{needs.Build_and_deploy_docker.outputs.target_version}}"
+          image_tag = "${{ needs.Build_and_deploy_docker.outputs.target_version }}"
           EOF
 
       - name: Terraform Init
