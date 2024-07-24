@@ -1,6 +1,6 @@
 resource "google_cloud_run_service" "ml_project" {
   name                       = "ml-project-cloudrun"
-  location                   = var.region
+  location                   = "europe-west3"
   project                    = var.project
   autogenerate_revision_name = true
 
