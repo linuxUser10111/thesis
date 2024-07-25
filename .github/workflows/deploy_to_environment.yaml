@@ -29,50 +29,50 @@ env:
 
 jobs:
   deploy_image:
-  name: Deploy image to environment
-  runs-on: ubuntu-latest
-  steps:
+    name: Deploy image to environment
+    runs-on: ubuntu-latest
+    steps:
 
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Authenticate to Google cloud
-      id: auth
-      uses: google-github-actions/setup-gcloud@v0.5.0
-      with:
-        project_id: ${{ secrets.GOOGLE_PROJECT}}
-        service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
-        export_default_credentials: true
-    
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+      - name: Authenticate to Google cloud
+        id: auth
+        uses: google-github-actions/setup-gcloud@v0.5.0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT}}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}
+          export_default_credentials: true
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
 
-    - name: Setup Terraform variables
-      working-directory: project/google_cloud_solution/terraform/application
-      id: vars
-      run: |-
-        cat > pipeline.auto.tfvars <<EOF
-        image_tag = "${{ github.event.inputs.image }}"
-        EOF
+      - name: Setup Terraform variables
+        working-directory: project/google_cloud_solution/terraform/application
+        id: vars
+        run: |-
+          cat > pipeline.auto.tfvars <<EOF
+          image_tag = "${{ github.event.inputs.image }}"
+          EOF
 
-    - name: Terraform Init
-      working-directory: project/google_cloud_solution/terraform/application
-      id: init
-      run: |
-        terraform init -backend-config=../configs/${{ env.GCP_PROJECT }}-${{ github.event.inputs.environment }}_app_backend.conf
+      - name: Terraform Init
+        working-directory: project/google_cloud_solution/terraform/application
+        id: init
+        run: |
+          terraform init -backend-config=../configs/${{ env.GCP_PROJECT }}-${{ github.event.inputs.environment }}_app_backend.conf
 
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
 
-    - name: Terraform Plan
-      working-directory: project/google_cloud_solution/terraform/application
-      id: plan
-      run: terraform plan -input=false -var-file=../configs/${{ env.GCP_PROJECT}}-${{ github.event.inputs.environment }}_config.tfvars -no-color -out=tf_plan.out
+      - name: Terraform Plan
+        working-directory: project/google_cloud_solution/terraform/application
+        id: plan
+        run: terraform plan -input=false -var-file=../configs/${{ env.GCP_PROJECT}}-${{ github.event.inputs.environment }}_config.tfvars -no-color -out=tf_plan.out
 
 
-    - name: Terraform Apply
-      run: terraform apply -input=false -auto-approve tf_plan.out
+      - name: Terraform Apply
+        run: terraform apply -input=false -auto-approve tf_plan.out
 
 
 
