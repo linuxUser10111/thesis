@@ -1,7 +1,7 @@
 name : Deploy Docker iamge to 
 
 on:
-  dispatch_wokflows:
+  workflow_dispatch:
   inputs:
     environment:
       required: true
